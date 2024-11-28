@@ -1,0 +1,39 @@
+a) Vyber všechno z tabulky products
+(SELECT * FROM products)
+
+b) Vyber všechno z tabulky products kde cena je menší než 2 (agregační funkce)
+(SELECT * FROM products WHERE UnitPrice < 5)
+
+c) Zjisti počet zákazníků v jednotlivých zemích
+(SELECT Country, COUNT(*) AS customer_count
+FROM Customers
+GROUP BY Country)
+
+d) Zjisti počet objednávek od jednotlivých zákazníků
+(SELECT CustomerID, COUNT(*) AS order_count
+FROM Orders
+GROUP BY CustomerID)
+
+e) Vyber z tabulky zákazníci všechny záznamy kde město začíná na písmeno A
+(SELECT * FROM Customers WHERE City LIKE 'A%')
+
+f) Vyber všechno z tabulky zákazníci kde jméno společnosti obsahuje řetězec Ver
+(SELECT * FROM customers WHERE companyName LIKE '%Ver%')
+
+g) Vyber všechna města z tabulky zákazníci která začínají na A nebo na B
+(SELECT DISTINCT City
+FROM Customers
+WHERE City LIKE 'A%' OR City LIKE 'B%')
+
+h) Vyber vše z tabulky zákazníci a seřaď podle názvu společnosti
+(SELECT * FROM Customers ORDER BY CompanyName)
+
+i) Zjisti počet objednávek z tabulky orders pro zákazníka vinet (customerID)
+(SELECT COUNT(*) AS order_count
+FROM Orders
+WHERE CustomerID = 'vinet')
+
+j) Vyber zákazníky jejichž jméno začíná na J a jsou z města na B
+(SELECT *
+FROM Customers
+WHERE ContactName LIKE 'J%' AND City LIKE 'B%')
